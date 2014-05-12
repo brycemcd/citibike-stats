@@ -3,6 +3,7 @@ library(reshape2)
 
 citi$hour_trip_started <- strftime(citi$starttime, format= "%H")
 citi$dow_trip_started  <- strftime(citi$starttime, format= "%a")
+citi$date_of_trip      <- strftime(citi$starttime, format= "%D")
 
 den <- melt(table(citi$hour_trip_started, citi$dow_trip_started))
 names(den) <- c("hour", "day", "c")
